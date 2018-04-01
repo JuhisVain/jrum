@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic>
+	<topicID>1</topicID>
+	<nameOfTopic>Test discussion</nameOfTopic>
+
+	<post>
+		<posterID>1</posterID>
+		<postTimeDate>
+			<postTime>12:30</postTime>
+			<postDate>13.03.2018</postDate>
+		</postTimeDate>
+		<postContent>All work and no play makes jack a dull boy. All work and no play makes jack a dull boy. All work and no play makes jack a adull boy.</postContent>
+	</post>
+
+	<post>
+		<posterID>2</posterID>
+		<postTimeDate>
+			<postTime>12:34</postTime>
+			<postDate>13.03.2018</postDate>
+		</postTimeDate>
+		<postContent>Tapa ittes! testi testi</postContent>
+	</post>
+
+</topic>

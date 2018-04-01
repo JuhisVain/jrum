@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic>
+	<topicID>2</topicID>
+	<nameOfTopic>Testi diskussio numero 2</nameOfTopic>
+
+	<post>
+		<posterID>2</posterID>
+		<postTimeDate>
+			<postTime>12:35</postTime>
+			<postDate>13.03.2018</postDate>
+		</postTimeDate>
+		<postContent>Tämä on dolan eli käyttäjä 2 topicissa 2.</postContent>
+	</post>
+
+	<post>
+		<posterID>2</posterID>
+		<postTimeDate>
+			<postTime>12:40</postTime>
+			<postDate>13.03.2018</postDate>
+		</postTimeDate>
+		<postContent>Paskaposti.</postContent>
+	</post>
+
+	<post>
+		<posterID>1</posterID>
+		<postTimeDate>
+			<postTime>13:00</postTime>
+			<postDate>14.03.2018</postDate>
+		</postTimeDate>
+		<postContent>Spämmäys kielletty! Bannia!</postContent>
+	</post>
+
+	<post>
+		<posterID>2</posterID>
+		<postTimeDate>
+			<postTime>13:01</postTime>
+			<postDate>14.03.2018</postDate>
+		</postTimeDate>
+		<postContent>Haista paska. modet kumoon.</postContent>
+	</post>
+	<post>
+		<posterID>3</posterID>
+		<postTimeDate>
+			<postTime>13:08:22</postTime>
+			<postDate>1.4.2018</postDate>
+		</postTimeDate>
+		<postContent>Testataas tännekki</postContent>
+	</post>
+
+</topic>

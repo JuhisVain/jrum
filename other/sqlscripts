@@ -1,0 +1,13 @@
+CREATE TABLE fuser (
+    UserID int NOT NULL AUTO_INCREMENT,
+    Nickname varchar(32) NOT NULL,
+    Password varchar(255) NOT NULL,
+    PRIMARY KEY (UserID)
+);
+
+CREATE TABLE fdiscussion (
+    DiscussionID int NOT NULL AUTO_INCREMENT,
+    UserID int NOT NULL,
+    PRIMARY KEY (DiscussionID),
+    FOREIGN KEY (UserID) REFERENCES fuser(UserID)
+);
