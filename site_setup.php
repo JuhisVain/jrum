@@ -14,20 +14,19 @@ function setUp($mode){
                 $conn = connectToDB();
                 $sql = "INSERT INTO fdiscussion (UserID) VALUES (".$_SESSION["userid"].");";
                 $conn->query($sql);
-                $sql = "SELECT * FROM fdiscussion WHERE UserID=".$_SESSION["userid"]." ORDER BY DiscussionID;";
+                $sql = "SELECT * FROM fdiscussion WHERE UserID=".$_SESSION["userid"]." ORDER BY DiscussionID DESC;";
                 $result = $conn->query($sql);
                 $discId = $result->fetch_assoc()["DiscussionID"];
 
+                echo "Creating new topic with: ".$discId." and ".$_POST['newtopic']." !";
                 $success = createNewTopic($discId, $_POST['newtopic']);
-                /*
+
                 if (!$success){
                     echo "Something's broken";
                     $sql = "DELETE FROM fdiscussion WHERE DiscussionID=".$discId.";";
                     $conn->query($sql);
-                } else {
-                    
                 }
-                */
+
                 $conn->close();
             }
             if (isset($_POST['newpostcontent']) && loggedIn()){//new post

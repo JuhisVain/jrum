@@ -24,47 +24,42 @@
 
      <div id="topiclist">
 
-       <?php
+<?php
 
-	 //require('db_handling.php');
-	 $conn = connectToDB();
-
+$conn = connectToDB();
 	 
+$discXMLfile = "topics/".$_GET["discussion"].".xml";
+$discxml = simplexml_load_file($discXMLfile) or die ("Can't find ".$discXMLfile);
 
-	 $discXMLfile = "topics/".$_GET["discussion"].".xml";
-         $discxml = simplexml_load_file($discXMLfile) or die ("Can't find ".$discXMLfile);
+foreach($discxml->post as $posts){
 
-       foreach($discxml->post as $posts){
-
-       echo "<div class=\"post\">
+    echo "<div class=\"post\">
 	 <div class=\"postuser\">";
 
-	   $sql = "SELECT UserID, Nickname FROM fuser WHERE UserID=".$posts->posterID;
+      $sql = "SELECT UserID, Nickname FROM fuser WHERE UserID=".$posts->posterID;
 
-	 $result = $conn->query($sql);
-	   $row = $result->fetch_assoc();
-	   echo $row["Nickname"];
-	   echo "<br>".$posts->postTimeDate->postTime."<br>".$posts->postTimeDate->postDate;
-	   echo "</div><div class=\"postcontent\">";
-	   echo $posts->postContent;
-	   echo "</div><div style=\"clear:both;\"></div></div>";
-	
-	
-       }
+      $result = $conn->query($sql);
+      $row = $result->fetch_assoc();
+      echo $row["Nickname"];
+      echo "<br>".$posts->postTimeDate->postTime."<br>".$posts->postTimeDate->postDate;
+      echo "</div><div class=\"postcontent\">";
+      echo $posts->postContent;
+      echo "</div><div style=\"clear:both;\"></div></div>";
+}
 
 
 	 
-	 $conn->close();
-	 ?>
-       
+$conn->close();
+?>
      </div>
+<?php if (loggedIn()){ ?>       
      <div id="postwriter">
          <form name="writepost" id="writepost" action="" method="post">
              <input type="text" name="newpostcontent">
              <input type="submit" value="Post">
          </form>
      </div>
-
+<?php } ?>
      <div id="footer">
        kopirait juho roductions
      </div>
@@ -74,3 +69,5 @@
   <link rel="stylesheet" type="text/css" href="style.css"/>
   <script src="disc.js"/>
 </html>
+
+    
