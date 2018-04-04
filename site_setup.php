@@ -10,7 +10,11 @@ function setUp($mode){
         if ('POST' == $_SERVER[ 'REQUEST_METHOD' ]){
             echo "post is set";
             if (isset($_POST['newtopic']) && loggedIn()){//new topic
-                echo "newtopic set";
+                //Sanitize topicname:
+
+                $sanetopic = filter_var($_POST['newtopic'], FILTER_SANITIZE_STRING);
+                $sanetopic = htmlspecialchars($sanetopic);
+                
                 $conn = connectToDB();
                 $sql = "INSERT INTO fdiscussion (UserID) VALUES (".$_SESSION["userid"].");";
                 $conn->query($sql);
@@ -18,8 +22,9 @@ function setUp($mode){
                 $result = $conn->query($sql);
                 $discId = $result->fetch_assoc()["DiscussionID"];
 
-                echo "Creating new topic with: ".$discId." and ".$_POST['newtopic']." !";
-                $success = createNewTopic($discId, $_POST['newtopic']);
+
+                echo "Creating new topic with: ".$discId." and ".$sanetopic." !";
+                $success = createNewTopic($discId, $sanetopic);
 
                 if (!$success){
                     echo "Something's broken";
@@ -30,8 +35,13 @@ function setUp($mode){
                 $conn->close();
             }
             if (isset($_POST['newpostcontent']) && loggedIn()){//new post
-                echo "newpost in disc: ".$_GET["discussion"]."mitä vittua ";
-                createNewPost($_POST['newpostcontent'],$_GET["discussion"]);
+                //sanitize post:
+                $sanepost = filter_var($_POST['newpostcontent'], FILTER_SANITIZE_STRING);
+                //more sanitizing:
+                $sanepost = htmlspecialchars($sanepost);
+                
+                echo "newpost in disc: ".$_GET["discussion"]."xxx ";
+                createNewPost($sanepost,$_GET["discussion"]);
                 
             }
         }

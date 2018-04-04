@@ -11,5 +11,53 @@
 		</postTimeDate>
 		<postContent>fgdfgdfg</postContent>
 	</post>
+	<post>
+		<posterID>5</posterID>
+		<postTimeDate>
+			<postTime>10:06:31</postTime>
+			<postDate>4.4.2018</postDate>
+		</postTimeDate>
+		<postContent>test1</postContent>
+	</post>
+	<post>
+		<posterID>5</posterID>
+		<postTimeDate>
+			<postTime>10:17:57</postTime>
+			<postDate>4.4.2018</postDate>
+		</postTimeDate>
+		<postContent>  &#34;test&#34; // 123 $un=&#34;aku ankka&#34;;;</postContent>
+	</post>
+	<post>
+		<posterID>5</posterID>
+		<postTimeDate>
+			<postTime>10:34:10</postTime>
+			<postDate>4.4.2018</postDate>
+		</postTimeDate>
+		<postContent></postContent>
+	</post>
+	<post>
+		<posterID>5</posterID>
+		<postTimeDate>
+			<postTime>10:36:21</postTime>
+			<postDate>4.4.2018</postDate>
+		</postTimeDate>
+		<postContent>&amp;&amp; &amp; ; &amp;amp;</postContent>
+	</post>
+	<post>
+		<posterID>5</posterID>
+		<postTimeDate>
+			<postTime>10:37:08</postTime>
+			<postDate>4.4.2018</postDate>
+		</postTimeDate>
+		<postContent>Testi ja testi, testi &amp; testi; $un = &amp;#34;hoho&amp;#34;;</postContent>
+	</post>
+	<post>
+		<posterID>5</posterID>
+		<postTimeDate>
+			<postTime>10:44:59</postTime>
+			<postDate>4.4.2018</postDate>
+		</postTimeDate>
+		<postContent>dfgdfg</postContent>
+	</post>
 
 </topic>
