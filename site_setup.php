@@ -5,7 +5,7 @@ session_start();
 
 function setUp($mode){
     loginSignup();
-    if ($mode == "disc"){
+    if ($mode == "disc" || $mode == "index"){
         echo "disc mode";
         if ('POST' == $_SERVER[ 'REQUEST_METHOD' ]){
             echo "post is set";
@@ -74,7 +74,7 @@ function createPanel($mode){ //ttu mitä skaa
 ?>
         <div id="createtopic" class="controlcentre">
 <?php   if ( loggedIn() ){ ?>
-          <form name="topiccreator" id="topiccreator" action="disc.php" method="post">
+          <form name="topiccreator" id="topiccreator" action="index.php" method="post">
       	    <input type="text" name="newtopic">
 	        <input type="submit" value="Create new topic">
           </form>

@@ -7,8 +7,11 @@ require('db_handling.php');
 function signup($un,$pw){
     $un = filter_var($un, FILTER_SANITIZE_STRING);
     $pw = filter_var($pw, FILTER_SANITIZE_STRING);
+
+    $hashedpw = password_hash($pw,PASSWORD_DEFAULT);
+    
     $conn = connectToDB();
-    $sql = "INSERT INTO fuser (Nickname, Password) VALUES (\"".$un."\", \"".$pw."\");";
+    $sql = "INSERT INTO fuser (Nickname, Password) VALUES (\"".$un."\", \"".$hashedpw."\");";
     $conn->query($sql);
     $conn->close();
     login($un,$pw);
@@ -18,12 +21,17 @@ function login($un,$pw){
     $un = filter_var($un, FILTER_SANITIZE_STRING);
     $pw = filter_var($pw, FILTER_SANITIZE_STRING);
     $conn = connectToDB();
-    $sql = "SELECT * FROM fuser WHERE Nickname=\"".$un."\" AND Password=\"".$pw."\";";
+    $sql = "SELECT * FROM fuser WHERE Nickname=\"".$un."\";";
     $result = $conn->query($sql);
     $line = $result->fetch_assoc();
-    $_SESSION["userid"] = $line["UserID"];
-    $_SESSION["password"] = $line["Password"];
-    $_SESSION["nickname"] = $line["Nickname"];
+
+    if (password_verify($pw, $line["Password"])){
+        $_SESSION["userid"] = $line["UserID"];
+        $_SESSION["password"] = $line["Password"];
+        $_SESSION["nickname"] = $line["Nickname"];
+    } else {
+        echo "wrong password!<br>";
+    }
     $conn->close();
 }
 
