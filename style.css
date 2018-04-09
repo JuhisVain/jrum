@@ -158,6 +158,10 @@ body {
     text-align: center;
 }
 
+.postdata {
+    float: left;
+}
+
 .postcontent {
     border-right: 1px solid black;
     border-top: 1px solid black;
@@ -166,6 +170,13 @@ body {
     padding: 6px;
     float: left;
     width: auto%;
+}
+
+.postsignature {
+    clear: left;
+    border-top: 1px solid black;
+    padding: 1px;
+    margin: 2px;
 }
 
 #footer {
@@ -196,5 +207,13 @@ body {
     border: 1px solid black;
     float: left;
     margin-bottom: 55px;
+}
+
+#settingsform {
+    margin: 5px;
+    background: linear-gradient(to right, grey,white,grey);
+    padding: 5px;
+    margin-bottom: 55px;
+    border: 1px solid black;
 }
 

@@ -36,15 +36,16 @@ foreach($discxml->post as $posts){
     echo "<div class=\"post\">
 	 <div class=\"postuser\">";
 
-      $sql = "SELECT UserID, Nickname FROM fuser WHERE UserID=".$posts->posterID;
+      $sql = "SELECT UserID, Nickname, Signature FROM fuser WHERE UserID=".$posts->posterID;
 
       $result = $conn->query($sql);
       $row = $result->fetch_assoc();
       echo $row["Nickname"];
       echo "<br>".$posts->postTimeDate->postTime."<br>".$posts->postTimeDate->postDate;
-      echo "</div><div class=\"postcontent\">";
+      echo "</div><div class=\"postdata\"><div class=\"postcontent\">";
       echo $posts->postContent;
-      echo "</div><div style=\"clear:both;\"></div></div>";
+      echo "</div><div class=\"postsignature\">".$row["Signature"];
+      echo "</div></div><div style=\"clear:both;\"></div></div>";
 }
 
 

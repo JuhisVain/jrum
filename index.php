@@ -19,7 +19,7 @@
 
   $conn = connectToDB();
   
-  $sql = "SELECT fdiscussion.DiscussionID, fuser.Nickname FROM fdiscussion LEFT JOIN fuser ON fdiscussion.UserID = fuser.UserID";
+  $sql = "SELECT fdiscussion.DiscussionID, fuser.Nickname FROM fdiscussion LEFT JOIN fuser ON fdiscussion.UserID = fuser.UserID ORDER BY DiscussionID DESC";
   $result = $conn->query($sql);
 
   while($row = $result->fetch_assoc()){
@@ -51,9 +51,7 @@
        
      </div>
 
-     <div id="footer">
-       kopirait juho roductions
-     </div>
+     <?php createFooter()?>
   </body>
   
   

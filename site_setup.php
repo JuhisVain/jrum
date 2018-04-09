@@ -5,7 +5,7 @@ session_start();
 
 function setUp($mode){
     loginSignup();
-    if ($mode == "disc" || $mode == "index"){
+    if ($mode == "disc" || $mode == "index") {
         echo "disc mode";
         if ('POST' == $_SERVER[ 'REQUEST_METHOD' ]){
             echo "post is set";
@@ -70,7 +70,7 @@ function createPanel($mode){ //ttu mitä skaa
         <div id="navigation">
 	      <a href="index.php">BACK</a>
 	    </div>
-<?php if ($mode == "index"){	//createtopic div for index.php
+<?php if ($mode == "index") {	//createtopic div for index.php
 ?>
         <div id="createtopic" class="controlcentre">
 <?php   if ( loggedIn() ){ ?>
@@ -80,7 +80,7 @@ function createPanel($mode){ //ttu mitä skaa
           </form>
 <?php   } ?>
         </div>
-<?php } else if ($mode == "discussion"){  //topictopic div for disc.php
+<?php } else if ($mode == "discussion") {  //topictopic div for disc.php
 ?>
         <div id="topictopic" class="controlcentre">
           <div id="topicstarter">
@@ -105,10 +105,13 @@ echo $tsfilexml->post[0]->postTimeDate[0]->postDate;
 <?php
 echo $tsfilexml->nameOfTopic;
 ?>
-     </div>
- </div>
+  </div>
+</div>
  <?php
-	 } else echo "tilt";
+} else if ($mode == "settings") { ?>
+    <div class="controlcentre">User settings</div>
+<?php
+} else echo "tilt, wrong mode";
 
 
 	 //login thing:
@@ -116,12 +119,13 @@ echo $tsfilexml->nameOfTopic;
 <div id="user">
 
 	   <?php
-	     if ( loggedIn() ){ ?>
+               if ( loggedIn() ){ ?><!--User part of the top panel when logged in-->
 	   <form name="logout" id="logout" action="" method="post">
 	     <?php echo $_SESSION["nickname"]."<br>" ?>
 	     <input type="submit" name="logout" value="Log out">
 	   </form>
-	   <?php } else { ?>
+       <a href="usersettings.php">Settings</a>
+	   <?php } else { ?><!--User part of the top panel when NOT logged in-->
 	   <form name="login" id="login" action="" method="post">
 	     <input type="text" name="username"><br>
 	     <input type="password" name="password"><br>
@@ -138,5 +142,11 @@ echo $tsfilexml->nameOfTopic;
 <?php
 
 }
+
+                                  function createFooter(){?>
+                                  <div id="footer">
+                                  kopirait juho roductions
+                                  </div>
+                                  <?php }                
 
 ?>

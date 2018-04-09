@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic>
+	<topicID>4</topicID>
+	<nameOfTopic>Nyt on signaturet tehty</nameOfTopic>
+
+	<post>
+		<posterID>1</posterID>
+		<postTimeDate>
+			<postTime>10:05:14</postTime>
+			<postDate>9.4.2018</postDate>
+		</postTimeDate>
+		<postContent>Minkä takia tää on tässä eikä viimesenä</postContent>
+	</post>
+	<post>
+		<posterID>1</posterID>
+		<postTimeDate>
+			<postTime>10:09:07</postTime>
+			<postDate>9.4.2018</postDate>
+		</postTimeDate>
+		<postContent>Tämänhän oli tarkotus olla siis uusimpana ensimmäisenä ja nyt se on eka.</postContent>
+	</post>
+
+</topic>

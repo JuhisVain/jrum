@@ -2,6 +2,7 @@ CREATE TABLE fuser (
     UserID int NOT NULL UNIQUE AUTO_INCREMENT,
     Nickname varchar(32) NOT NULL UNIQUE,
     Password varchar(255) NOT NULL,
+    Signature varchar(255),
     PRIMARY KEY (UserID)
 );
 
