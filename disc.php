@@ -27,6 +27,8 @@
 <?php
 
 $conn = connectToDB();
+$sqlps = $conn->prepare("SELECT UserID, Nickname, Signature FROM fuser WHERE UserID=?");
+$sqlps->bind_param("i",$uid);
 	 
 $discXMLfile = "topics/".$_GET["discussion"].".xml";
 $discxml = simplexml_load_file($discXMLfile) or die ("Can't find ".$discXMLfile);
@@ -36,9 +38,11 @@ foreach($discxml->post as $posts){
     echo "<div class=\"post\">
 	 <div class=\"postuser\">";
 
-      $sql = "SELECT UserID, Nickname, Signature FROM fuser WHERE UserID=".$posts->posterID;
-
-      $result = $conn->query($sql);
+        //$sql = "SELECT UserID, Nickname, Signature FROM fuser WHERE UserID=".$posts->posterID;
+        $uid = $posts->posterID;
+        $sqlps->execute();
+        //$result = $conn->query($sql);
+        $result = $sqlps->get_result();
       $row = $result->fetch_assoc();
       echo $row["Nickname"];
       echo "<br>".$posts->postTimeDate->postTime."<br>".$posts->postTimeDate->postDate;

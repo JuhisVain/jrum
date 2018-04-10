@@ -17,8 +17,16 @@ function setUp($mode){
                 
                 $conn = connectToDB();
                 $sql = "INSERT INTO fdiscussion (UserID) VALUES (".$_SESSION["userid"].");";
+
+                //"Prepared statements shouldn't be used for single queries"
+                //$sqlps = $conn->prepare("INSERT INTO fdiscussion (UserID) VALUES (?);");
+                //$sqlps->bind_param("i",$_SESSION["userid"]);
+
                 $conn->query($sql);
+                //$sqlps->execute();
+                
                 $sql = "SELECT * FROM fdiscussion WHERE UserID=".$_SESSION["userid"]." ORDER BY DiscussionID DESC;";
+
                 $result = $conn->query($sql);
                 $discId = $result->fetch_assoc()["DiscussionID"];
 
