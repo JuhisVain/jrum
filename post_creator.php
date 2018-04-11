@@ -4,9 +4,10 @@ function createNewTopic($id,$name){
 
     $filename = "topics/".$id.".xml";
     echo "name of file: ".$filename;
-    
+
+    //If this fails: *something* needs permissions to write
     if (!file_exists($filename)){
-        echo "File does not exist, attemptiung to create it!";
+        echo "File does not exist, attempting to create it!";
         $file = fopen($filename, "w");// or die ("File creation broken!");
         if (!file_exists($filename)){
             echo "File creation failed";
@@ -27,6 +28,9 @@ function createNewTopic($id,$name){
     return true;
 }
 
+//Modifies existing xml-file.
+//Truncate 9 chars ("\n</topic>"), Append new post.
+//There might be a better way to do this
 function createNewPost($content,$discussion){// :o
     $discXMLfile = "topics/".$discussion.".xml";
 

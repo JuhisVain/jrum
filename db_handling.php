@@ -1,6 +1,7 @@
 <?php
 
 function connectToDB(){
+    //Change these to whatever they need to be for your mysql to work:
 	 $servername = "localhost";
 	 $username = "root";
 	 $password = "1234";

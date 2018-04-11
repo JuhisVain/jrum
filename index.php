@@ -17,8 +17,9 @@
 
 <?php
 
+  //Topic IDs are incremental -> Place larger IDs on top.
+  //no sense to make this a prepared statement
   $conn = connectToDB();
-  
   $sql = "SELECT fdiscussion.DiscussionID, fuser.Nickname FROM fdiscussion LEFT JOIN fuser ON fdiscussion.UserID = fuser.UserID ORDER BY DiscussionID DESC";
   $result = $conn->query($sql);
 
@@ -26,8 +27,9 @@
     echo "<div class=\"topic\">
            <div class=\"topicdata\">
 	         <div class=\"topicuser\">".
-		     $row["Nickname"];
+    $row["Nickname"];//topic starter... or at least first poster
 
+    //Get the times and topicnames
     $filename = "topics/".$row["DiscussionID"].".xml";
     $filexml = simplexml_load_file($filename) or die ("Cannot open file ".$filename);
 
@@ -51,7 +53,7 @@
        
      </div>
 
-     <?php createFooter()?>
+     <?php createFooter();?>
   </body>
   
   

@@ -156,6 +156,7 @@ body {
     padding: 5px;
     float: left;
     text-align: center;
+    min-width: 75px;
 }
 
 .postdata {
@@ -169,7 +170,7 @@ body {
     border-top-right-radius: 15px;
     padding: 6px;
     float: left;
-    width: auto%;
+    width: auto;
 }
 
 .postsignature {

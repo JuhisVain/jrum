@@ -1,9 +1,6 @@
 <?php
 require('db_handling.php');
 
-//TODO: hashing
-//done: validation(?)
-
 function signup($un,$pw){
     $un = filter_var($un, FILTER_SANITIZE_STRING);
     $pw = filter_var($pw, FILTER_SANITIZE_STRING);
@@ -27,7 +24,7 @@ function login($un,$pw){
 
     if (password_verify($pw, $line["Password"])){
         $_SESSION["userid"] = $line["UserID"];
-        $_SESSION["password"] = $line["Password"];
+        $_SESSION["password"] = $line["Password"];//TODO remove
         $_SESSION["nickname"] = $line["Nickname"];
     } else {
         echo "wrong password!<br>";
@@ -44,6 +41,7 @@ function loggedIn(){
 	return (isset($_SESSION["userid"]) && isset($_SESSION["password"]) && isset($_SESSION["nickname"]));
 }
 
+//Translate id number to nickname string:
 function idToNick($id){
     $conn = connectToDB();
     $sql = "SELECT UserID, Nickname FROM fuser WHERE UserID=".$id.";";

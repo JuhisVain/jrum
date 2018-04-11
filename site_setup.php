@@ -6,9 +6,9 @@ session_start();
 function setUp($mode){
     loginSignup();
     if ($mode == "disc" || $mode == "index") {
-        echo "disc mode";
+        //echo "disc mode";
         if ('POST' == $_SERVER[ 'REQUEST_METHOD' ]){
-            echo "post is set";
+            //echo "post is set";
             if (isset($_POST['newtopic']) && loggedIn()){//new topic
                 //Sanitize topicname:
 
@@ -70,7 +70,7 @@ function loginSignup(){
     }
 }
 
-
+//Create the top panel:
 function createPanel($mode){ //ttu mitä skaa
 ?>
     <div id="header">
@@ -96,7 +96,7 @@ function createPanel($mode){ //ttu mitä skaa
 
 $tsfilename = "topics/".$_GET["discussion"].".xml";
 $tsfilexml = simplexml_load_file($tsfilename) or die ("sprölö");
-if (isset($tsfilexml->post[0]->posterID)){
+if (isset($tsfilexml->post[0]->posterID)){//Topic name and time into top panel
 echo idToNick($tsfilexml->post[0]->posterID);
      	  
 echo "<br>";
@@ -150,11 +150,11 @@ echo $tsfilexml->nameOfTopic;
 <?php
 
 }
-
-                                  function createFooter(){?>
-                                  <div id="footer">
-                                  kopirait juho roductions
-                                  </div>
-                                  <?php }                
+//simple footer:
+function createFooter(){?>
+  <div id="footer">
+  kopirait juho roductions
+    </div>
+<?php }                
 
 ?>
