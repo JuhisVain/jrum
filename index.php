@@ -40,7 +40,9 @@
             echo $filexml->post[0]->postTimeDate[0]->postDate;
         }
         echo "</div><div class=\"topicname\"><a class=\"discussionLink\" href=\"disc.php?discussion=".$row["DiscussionID"]."\">";
-        echo $filexml->nameOfTopic."</a>";
+        if ($filexml->nameOfTopic != ""){
+            echo $filexml->nameOfTopic."</a>";
+        } else echo "No name topic</a>";
     } else {
         ?>
 

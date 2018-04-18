@@ -37,18 +37,40 @@ function createNewPost($content,$discussion){// :o
     $file = fopen($discXMLfile, "a");
 
     $filesize = filesize($discXMLfile);
-    ftruncate($file,$filesize-9);//nyt menee lujaa
-    
-    fwrite($file, "\t<post>
+    ftruncate($file,$filesize-9);//nyt menee lujaa. -update 18.4.: lujaa mentiin ja nyt ollaan ojassa
+
+    //debug:
+    echo "file: ".$discXMLfile." userid: ".$_SESSION["userid"]." content: ".$content."date and time: ".date("H:i:s j:n:Y")."<br>";
+    //rewind($file);
+    //fclose($file);
+    //$file = fopen($discXMLfile, "a");
+    /*
+    if(!fwrite($file, "\t<post>
 \t\t<posterID>".$_SESSION["userid"]."</posterID>
 \t\t<postTimeDate>\n\t\t\t<postTime>".date("H:i:s")."</postTime>
 \t\t\t<postDate>".date("j.n.Y")."</postDate>\n\t\t</postTimeDate>
 \t\t<postContent>".$content."</postContent>
 \t</post>
 
-</topic>");
+</topic>")){
+      echo "Failure to write to file: ".fwrite($file,"\n</topic>");//try to recover
+    };
+*/
+
+    fseek($file,0,SEEK_END);
+
+    //echo "<br>1: ".fwrite($file, "<post>\n\t\t<posterID>".$_SESSION["userid"]."</posterID>");
+
+    //wtf: try and try again until it works
+    while (!fwrite($file, "<post>\n\t\t<posterID>".$_SESSION["userid"]."</posterID>"));
+    
+    while(!fwrite($file, "\n\t\t<postTimeDate>\n\t\t\t<postTime>".date("H:i:s")."</postTime>"));
+    while(!fwrite($file, "\n\t\t\t<postDate>".date("j.n.Y")."</postDate>\n\t\t</postTimeDate>"));
+    while(!fwrite($file, "\n\t\t<postContent>".$content."</postContent>"));
+    while(!fwrite($file, "\n\t</post>\n\n</topic>"));
     
     fclose($file);
+    
 }
 
 ?>
