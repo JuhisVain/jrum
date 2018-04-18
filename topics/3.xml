@@ -67,5 +67,13 @@
 		</postTimeDate>
 		<postContent>Testataan sigiä.</postContent>
 	</post>
+	<post>
+		<posterID>5</posterID>
+		<postTimeDate>
+			<postTime>11:04:30</postTime>
+			<postDate>18.4.2018</postDate>
+		</postTimeDate>
+		<postContent>tset</postContent>
+	</post>
 
 </topic>

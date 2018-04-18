@@ -30,7 +30,7 @@ if ('POST' == $_SERVER[ 'REQUEST_METHOD' ]) {
 
                     <div id="settingsform">
                     <form name="settingschange" id="settingschange" action="" method="post">
-                    <input type="text" name="signature"
+                    Your signature: <input type="text" name="signature"
 <?php
                     echo "value=\"";
                     $conn = connectToDB();

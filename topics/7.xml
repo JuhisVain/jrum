@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic>
+	<topicID>7</topicID>
+	<nameOfTopic>empty topic</nameOfTopic>
+
+	<post>
+		<posterID>1</posterID>
+		<postTimeDate>
+			<postTime>11:59:46</postTime>
+			<postDate>18.4.2018</postDate>
+		</postTimeDate>
+		<postContent>hoho</postContent>
+	</post>
+
+</topic>

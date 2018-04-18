@@ -10,7 +10,8 @@
 <html>
   <head>
     <title>
-      <?php//title should be the name given to the topic
+      <?php
+      //title should be the name given to the topic
 
 	$filename = "topics/".$_GET["discussion"].".xml";
 	$filexml = simplexml_load_file($filename) or die ("Cannot open file ".$filename);
@@ -46,34 +47,34 @@ foreach($discxml->post as $posts){
         $sqlps->execute();
 
         $result = $sqlps->get_result();
-      $row = $result->fetch_assoc();
-      echo $row["Nickname"];
-      //Get the time from xml:
-      echo "<br>".$posts->postTimeDate->postTime."<br>".$posts->postTimeDate->postDate;
-      echo "</div><div class=\"postdata\"><div class=\"postcontent\">";
-      //get the post's text content from xml:
-      echo $posts->postContent;
-      //get the signature from mysql database
-      echo "</div><div class=\"postsignature\">".$row["Signature"];
-      echo "</div></div><div style=\"clear:both;\"></div></div>";
+        $row = $result->fetch_assoc();
+        echo $row["Nickname"];
+        //Get the time from xml:
+        echo "<br>".$posts->postTimeDate->postTime."<br>".$posts->postTimeDate->postDate;
+        echo "</div><div class=\"postdata\"><div class=\"postcontent\">";
+        //get the post's text content from xml:
+        echo $posts->postContent;
+        //get the signature from mysql database
+        echo "</div><div class=\"postsignature\">".$row["Signature"];
+        echo "</div></div><div style=\"clear:both;\"></div></div>";
 }
 
 $conn->close();
 ?>
-     </div>
+</div>
 <?php if (loggedIn()){ /*if logged in show form to add new post */  ?>       
-     <div id="postwriter">
-         <form name="writepost" id="writepost" action="" method="post">
-             <input type="text" name="newpostcontent">
-             <input type="submit" value="Post">
-         </form>
-     </div>
+<div id="postwriter">
+   <form name="writepost" id="writepost" action="" method="post">
+     <input type="text" name="newpostcontent">
+     <input type="submit" value="Post">
+   </form>
+</div>
 <?php }
 createFooter();
 ?>
-	 
+
   </body>
-  
+
   <link rel="stylesheet" type="text/css" href="style.css"/>
   <script src="disc.js"/>
 </html>

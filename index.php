@@ -29,17 +29,25 @@
 	         <div class=\"topicuser\">".
     $row["Nickname"];//topic starter... or at least first poster
 
-    //Get the times and topicnames
+    //Get the times and topicnames + handle no files errors
     $filename = "topics/".$row["DiscussionID"].".xml";
-    $filexml = simplexml_load_file($filename) or die ("Cannot open file ".$filename);
+    
+    if (file_exists($filename)){
+        $filexml = simplexml_load_file($filename);// or die ("Cannot open file ".$filename);
 
-    if (isset($filexml->post[0]->postTimeDate[0]->postTime)){//if first post has been made
-        echo "<br>".$filexml->post[0]->postTimeDate[0]->postTime."<br>";
-        echo $filexml->post[0]->postTimeDate[0]->postDate;
+        if (isset($filexml->post[0]->postTimeDate[0]->postTime)){//if first post has been made
+            echo "<br>".$filexml->post[0]->postTimeDate[0]->postTime."<br>";
+            echo $filexml->post[0]->postTimeDate[0]->postDate;
+        }
+        echo "</div><div class=\"topicname\"><a class=\"discussionLink\" href=\"disc.php?discussion=".$row["DiscussionID"]."\">";
+        echo $filexml->nameOfTopic."</a>";
+    } else {
+        ?>
+
+        </div><div class="topicname" style="color: RED;">Error in opening topicfile!
+        
+        <?php
     }
-    echo "</div><div class=\"topicname\"><a class=\"discussionLink\" href=\"disc.php?discussion=".$row["DiscussionID"]."\">";
-    echo $filexml->nameOfTopic."</a>";
-
 		
 	echo "</div>
 	      <div style=\"clear:both;\"></div>
