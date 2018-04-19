@@ -50,7 +50,13 @@ function setUp($mode){
                 
                 echo "newpost in disc: ".$_GET["discussion"]."xxx ";
                 createNewPost($sanepost,$_GET["discussion"]);
-                
+            }
+            if (modRights() && isset($_POST['destroytopic']) && isset($_POST['destroytopicid'])){
+                $conn = connectToDB();
+                $sql = "DELETE FROM fdiscussion WHERE DiscussionID='".$_POST["destroytopicid"]."';";
+                $conn->query($sql);
+                $conn->close();
+                destroyTopicXML($_POST["destroytopicid"]);
             }
         }
     }
@@ -114,6 +120,18 @@ echo $tsfilexml->post[0]->postTimeDate[0]->postDate;
 echo $tsfilexml->nameOfTopic;
 ?>
   </div>
+<?php if (modRights()){ ?>
+<div id="topicdestroy">
+    <form name="destroytopic" action="index.php" method="post">
+    <?php echo "<input type=\"checkbox\" name=\"destroytopicid\" value=\"".$_GET["discussion"]."\">Check this!"; ?>
+    <input type="submit" name="destroytopic" value="Delete this topic">
+    </form>
+</div>
+    
+
+<?php } ?>
+
+
 </div>
  <?php
 } else if ($mode == "settings") { ?>

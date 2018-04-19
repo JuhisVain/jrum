@@ -28,6 +28,11 @@ function createNewTopic($id,$name){
     return true;
 }
 
+function destroyTopicXML($topicID){
+    $discXMLfile = "topics/".$topicID.".xml";
+    unlink($discXMLfile);
+}
+
 //Modifies existing xml-file.
 //Truncate 9 chars ("\n</topic>"), Append new post.
 //There might be a better way to do this

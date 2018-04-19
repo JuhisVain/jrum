@@ -27,7 +27,7 @@ if ('POST' == $_SERVER[ 'REQUEST_METHOD' ]) {
   <body>
   <?php createPanel("settings");
   if (loggedIn()) { ?>
-
+                    
                     <div id="settingsform">
                     <form name="settingschange" id="settingschange" action="" method="post">
                     Your signature: <input type="text" name="signature"
