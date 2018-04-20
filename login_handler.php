@@ -19,9 +19,10 @@ function signup($un,$pw){
     
     $conn = connectToDB();
     $sql = "INSERT INTO fuser (Nickname, Password) VALUES (\"".$un."\", \"".$hashedpw."\");";
-    $message = $conn->query($sql);
+    $conn->query($sql);
+
     if ($conn->error){
-        echo "That nickname already exists!"; //Probably
+        echo $conn->error."<br>";
         $conn->close();
         return;
     }

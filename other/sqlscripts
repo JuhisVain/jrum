@@ -3,7 +3,7 @@ CREATE TABLE fuser (
     Nickname varchar(32) NOT NULL UNIQUE,
     Password varchar(255) NOT NULL,
     Signature varchar(255),
-    Moderator bit NOT NULL;
+    Moderator bit NOT NULL DEFAULT 0;
     PRIMARY KEY (UserID)
 );
 
