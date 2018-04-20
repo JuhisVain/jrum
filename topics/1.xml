@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<topic>
+	<topicID>1</topicID>
+	<nameOfTopic>testi topiikki</nameOfTopic>
+
+<post>
+		<posterID>14</posterID>
+		<postTimeDate>
+			<postTime>10:09:39</postTime>
+			<postDate>20.4.2018</postDate>
+		</postTimeDate>
+		<postContent>kaikki toimii</postContent>
+	</post>
+<post>
+		<posterID>1</posterID>
+		<postTimeDate>
+			<postTime>10:09:49</postTime>
+			<postDate>20.4.2018</postDate>
+		</postTimeDate>
+		<postContent>Hohoho</postContent>
+	</post>
+
+</topic>

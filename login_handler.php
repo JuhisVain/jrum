@@ -58,14 +58,16 @@ function loggedIn(){
 }
 
 //Does a user have moderator rights?
-function modRights(){
-    if (isset($_SESSION["userid"])){
+function modRights() {
+    if (isset($_SESSION["userid"])) {
         $conn = connectToDB();
         $sql = "SELECT Moderator FROM fuser WHERE UserID=".$_SESSION["userid"].";";
         $result = $conn->query($sql);
         $conn->close();
         return $result->fetch_assoc()["Moderator"];
-    } else return 0;
+    } else {
+        return 0;
+    }
 }
 
 //Translate id number to nickname string:

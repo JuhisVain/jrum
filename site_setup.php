@@ -114,9 +114,12 @@ echo $tsfilexml->post[0]->postTimeDate[0]->postDate;
      <div id="topicstart">
 <?php
 echo $tsfilexml->nameOfTopic;
+
 ?>
   </div>
-<?php if (modRights()){ ?>
+<?php
+    if (modRights()) {
+        ?>
 <div id="topicdestroy">
     <form name="destroytopic" action="index.php" method="post">
     <?php echo "<input type=\"checkbox\" name=\"destroytopicid\" value=\"".$_GET["discussion"]."\">Check this!"; ?>
@@ -124,10 +127,11 @@ echo $tsfilexml->nameOfTopic;
     </form>
 </div>
     
-<?php } ?>
-
+<?php
+    }
+        ?>
 </div>
- <?php
+ <?php 
 } else if ($mode == "settings") { ?>
     <div class="controlcentre">User settings</div>
 <?php

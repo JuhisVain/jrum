@@ -19,7 +19,7 @@
 	?>
     </title>
   </head>
-  <body>
+<body>
 <?php createPanel("discussion"); ?>
 
      <div id="topiclist">
