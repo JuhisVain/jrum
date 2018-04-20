@@ -1,7 +1,6 @@
 <?php
   require('site_setup.php');
   setUp("disc");
-
   ?>
 
 <!DOCTYPE html>

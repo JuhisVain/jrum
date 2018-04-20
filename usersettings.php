@@ -1,4 +1,5 @@
 <?php
+//There's nothing but a signature modifying field here
 require('site_setup.php');
 setUp("settings");
 

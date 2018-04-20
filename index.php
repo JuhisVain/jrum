@@ -16,11 +16,11 @@
   <div id="topiclist">
 
 <?php
-
-  //Topic IDs are incremental -> Place larger IDs on top.
-  //no sense to make this a prepared statement
-  $conn = connectToDB();
-  $sql = "SELECT fdiscussion.DiscussionID, fuser.Nickname FROM fdiscussion LEFT JOIN fuser ON fdiscussion.UserID = fuser.UserID ORDER BY DiscussionID DESC";
+      //Topic IDs are incremental -> Place larger IDs on top.
+      //Would be smarter to have timedate in sqlDB instead of xml file and order by that
+      //no sense in making this a prepared statement
+$conn = connectToDB();
+$sql = "SELECT fdiscussion.DiscussionID, fuser.Nickname FROM fdiscussion LEFT JOIN fuser ON fdiscussion.UserID = fuser.UserID ORDER BY DiscussionID DESC";
   $result = $conn->query($sql);
 
   while($row = $result->fetch_assoc()){
@@ -58,17 +58,11 @@
   }
 
   $conn->close();
-
 ?>
-       
      </div>
-
      <?php createFooter();?>
   </body>
-  
-  
   
   <link rel="stylesheet" type="text/css" href="style.css"/>
   <script src="front.js"/>
 </html>
-

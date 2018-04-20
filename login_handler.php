@@ -1,9 +1,19 @@
 <?php
 require('db_handling.php');
 
+//Sign up button presssed:
 function signup($un,$pw){
+
+    $oldpw = $pw;
+    $oldun = $un;
+    
     $un = filter_var($un, FILTER_SANITIZE_STRING);
     $pw = filter_var($pw, FILTER_SANITIZE_STRING);
+
+    if ($oldpw != $pw || $oldun != $un){
+        echo "Don't use goofy characters!";
+        return;
+    }
 
     $hashedpw = password_hash($pw,PASSWORD_DEFAULT);
     
@@ -11,8 +21,7 @@ function signup($un,$pw){
     $sql = "INSERT INTO fuser (Nickname, Password) VALUES (\"".$un."\", \"".$hashedpw."\");";
     $message = $conn->query($sql);
     if ($conn->error){
-        //There's only one way this can go wrong:
-        echo "That nickname already exists!";
+        echo "That nickname already exists!"; //Probably
         $conn->close();
         return;
     }
@@ -20,6 +29,7 @@ function signup($un,$pw){
     login($un,$pw);
 }
 
+//login button pressed:
 function login($un,$pw){
     $un = filter_var($un, FILTER_SANITIZE_STRING);
     $pw = filter_var($pw, FILTER_SANITIZE_STRING);
@@ -42,6 +52,7 @@ function logout(){
     session_destroy();
 }
 
+//Check if user is logged in:
 function loggedIn(){
 	return (isset($_SESSION["userid"]) &&  isset($_SESSION["nickname"]));
 }
