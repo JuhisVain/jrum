@@ -17,5 +17,8 @@ Instructions:
   <br>Manually flip the Moderator bit on for that user in your database
   <br>UPDATE fuser SET Moderator=1 WHERE Nickname='YOUR_USERNAME';
 
-![Alt text](/other/index.jpg "test")
-![Alt text](/other/disc.jpg "test")
+index.php page. View of different discussions:
+![Alt text](/other/index.jpg "index page")
+
+disc.php page. View of posts in a discussion:
+![Alt text](/other/disc.jpg "discussion page")
