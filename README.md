@@ -20,7 +20,8 @@ Instructions:
   <br>Manually flip the Moderator bit on for that user in your database
   <br>UPDATE fuser SET Moderator=1 WHERE Nickname='YOUR_USERNAME';
 11. Create a new topic.
-12. If you didn't have rights to write to '/topics' your computer will now hang.
+12. Navigate to topic & write a post.
+13. If you didn't have rights to write to '/topics' your computer will now hang.
 
 index.php page. View of different discussions:
 ![Alt text](/other/index.jpg "index page")
