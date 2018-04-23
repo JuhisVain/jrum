@@ -13,7 +13,7 @@ Instructions:
 4. Make sure whatever runs your php has rights to write files to disk at /topics
 5. Make absolutely sure you have rights to write to /topics
 6. **Remember to check that you have rights to write**
-7. Just to make sure in case you don't have the correct rights, go look at the bottom of the database page in [the wiki over here.](/wiki/Database)
+7. Just to make sure in case you don't have the correct rights, go look at the bottom of the database page in [the wiki over here.](https://github.com/JuhisVain/jrum/wiki/Database)
 8. Everything should be working now.
 9. Navigate to yoursite/index.php.
 10. Create a user using the interface (input username and password & click sign up)
