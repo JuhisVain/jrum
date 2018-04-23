@@ -16,3 +16,6 @@ Instructions:
 7. Create a user using the interface (input username and password & click sign up)
   <br>Manually flip the Moderator bit on for that user in your database
   <br>UPDATE fuser SET Moderator=1 WHERE Nickname='YOUR_USERNAME';
+
+![Alt text](/other/index.jpg "test")
+![Alt text](/other/disc.jpg "test")
