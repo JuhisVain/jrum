@@ -8,7 +8,7 @@ CREATE TABLE fuser (
 );
 
 CREATE TABLE fdiscussion (
-    DiscussionID int NOT NULL AUTO_INCREMENT,
+    DiscussionID int NOT NULL UNIQUE AUTO_INCREMENT,
     UserID int NOT NULL,
     PRIMARY KEY (DiscussionID),
     FOREIGN KEY (UserID) REFERENCES fuser(UserID)
